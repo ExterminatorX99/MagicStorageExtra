@@ -19,14 +19,9 @@ namespace MagicStorageExtra.Components
         {
             Main.tileSolidTop[Type] = true;
             Main.tileFrameImportant[Type] = true;
-            TileObjectData.newTile.Width = 2;
-            TileObjectData.newTile.Height = 2;
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
             TileObjectData.newTile.Origin = new Point16(1, 1);
-            TileObjectData.newTile.CoordinateHeights = new[] {16, 16};
-            TileObjectData.newTile.CoordinateWidth = 16;
-            TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.newTile.HookCheck = new PlacementHook(CanPlace, -1, 0, true);
-            TileObjectData.newTile.UsesCustomCanPlace = true;
             ModifyObjectData();
             ModTileEntity tileEntity = GetTileEntity();
             if (tileEntity != null)
