@@ -138,7 +138,7 @@ namespace MagicStorageExtra
 				CraftingGUI.searchBar?.Reset();
 			}
 
-			if (MagicStorageConfig.ClearSelectedItem)
+			if (MagicStorageConfig.ClearSelectedRecipe)
 			{
 				CraftingGUI.selectedRecipe = null;
 			}

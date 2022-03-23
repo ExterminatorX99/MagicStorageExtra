@@ -35,10 +35,10 @@ namespace MagicStorageExtra
 		[DefaultValue(false)]
 		public bool clearSearchText;
 
-		[Label("Clear selected item")]
-		[Tooltip("Enable to clear the last selected item when opening the UI")]
+		[Label("Clear selected recipe")]
+		[Tooltip("Enable to clear the last selected recipe when opening the Crafting Interface")]
 		[DefaultValue(true)]
-		public bool clearSelectedItem;
+		public bool clearSelectedRecipe;
 
 		[Label("Show estimated item dps")]
 		[Tooltip("Enable to show the estimated dps of the item as a tooltip")]
@@ -57,7 +57,7 @@ namespace MagicStorageExtra
 
 		[JsonIgnore] public static bool ClearSearchText => Instance.clearSearchText;
 
-		[JsonIgnore] public static bool ClearSelectedItem => Instance.clearSelectedItem;
+		[JsonIgnore] public static bool ClearSelectedRecipe => Instance.clearSelectedRecipe;
 
 		[JsonIgnore] public static bool ShowItemDps => Instance.showItemDps;
 
