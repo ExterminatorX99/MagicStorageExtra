@@ -35,6 +35,11 @@ namespace MagicStorageExtra
 		[DefaultValue(false)]
 		public bool clearSearchText;
 
+		[Label("Clear selected item")]
+		[Tooltip("Enable to clear the last selected item when opening the UI")]
+		[DefaultValue(true)]
+		public bool clearSelectedItem;
+
 		[Label("Show estimated item dps")]
 		[Tooltip("Enable to show the estimated dps of the item as a tooltip")]
 		[DefaultValue(true)]
@@ -51,6 +56,8 @@ namespace MagicStorageExtra
 		[JsonIgnore] public static bool QuickStackDepositMode => Instance.quickStackDepositMode;
 
 		[JsonIgnore] public static bool ClearSearchText => Instance.clearSearchText;
+
+		[JsonIgnore] public static bool ClearSelectedItem => Instance.clearSelectedItem;
 
 		[JsonIgnore] public static bool ShowItemDps => Instance.showItemDps;
 

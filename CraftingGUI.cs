@@ -66,7 +66,7 @@ namespace MagicStorageExtra
 		private static readonly Dictionary<int, int> itemCounts = new Dictionary<int, int>();
 		private static List<Recipe> recipes = new List<Recipe>();
 		private static List<bool> recipeAvailable = new List<bool>();
-		private static Recipe selectedRecipe;
+		public static Recipe selectedRecipe;
 		private static int numRows;
 		private static int displayRows;
 		private static bool slotFocus;
