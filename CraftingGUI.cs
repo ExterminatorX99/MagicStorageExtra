@@ -474,6 +474,7 @@ namespace MagicStorageExtra
 				InitReflection();
 				if (Main.mouseX > panelLeft && Main.mouseX < recipeWidth + panelWidth + panelLeft && Main.mouseY > panelTop && Main.mouseY < panelTop + panelHeight)
 				{
+					Main.mouseText = true;
 					player.mouseInterface = true;
 					player.showItemIcon = false;
 					InterfaceHelper.HideItemIconCache();

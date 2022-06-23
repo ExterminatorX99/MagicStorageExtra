@@ -98,6 +98,8 @@ namespace MagicStorageExtra
 			}
 			else if (storageAccess.X >= 0 && storageAccess.Y >= 0)
 			{
+				Main.HidePlayerCraftingMenu = true;
+
 				int playerX = (int) (player.Center.X / 16f);
 				int playerY = (int) (player.Center.Y / 16f);
 				if (!remoteAccess && (playerX < storageAccess.X - player.lastTileRangeX || playerX > storageAccess.X + player.lastTileRangeX + 1 || playerY < storageAccess.Y - player.lastTileRangeY || playerY > storageAccess.Y + player.lastTileRangeY + 1))
