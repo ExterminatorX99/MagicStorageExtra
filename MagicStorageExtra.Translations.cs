@@ -248,7 +248,7 @@ namespace MagicStorageExtra
 			AddTranslation(text);
 
 			text = CreateTranslation("CraftTooltip");
-			text.SetDefault("Left click to Craft, Right click to get item for a test (only for new items)");
+			text.SetDefault("Left click to Craft (ctrl to get max), Right click to get item for a test (only for new items)");
 			AddTranslation(text);
 
 			text = CreateTranslation("TestItemSuffix");

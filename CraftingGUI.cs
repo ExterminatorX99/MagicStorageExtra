@@ -818,24 +818,39 @@ namespace MagicStorageExtra
 				}
 				else if (curMouse.LeftButton == ButtonState.Pressed && selectedRecipe != null && IsAvailable(selectedRecipe, false) && PassesBlock(selectedRecipe))
 				{
-					if (craftTimer <= 0)
+					if (Main.keyState.IsKeyDown(Keys.LeftControl))
 					{
-						craftTimer = maxCraftTimer;
-						maxCraftTimer = maxCraftTimer * 3 / 4;
-						if (maxCraftTimer <= 0)
-							maxCraftTimer = 1;
-						TryCraft();
-						if (RecursiveCraftIntegration.Enabled)
-							if (RecursiveCraftIntegration.UpdateRecipe(selectedRecipe))
-								SetSelectedRecipe(selectedRecipe);
-						RefreshItems();
+						while (IsAvailable(selectedRecipe, false) && PassesBlock(selectedRecipe))
+						{
+							TryCraft();
+							if (RecursiveCraftIntegration.Enabled)
+								if (RecursiveCraftIntegration.UpdateRecipe(selectedRecipe))
+									SetSelectedRecipe(selectedRecipe);
+							RefreshItems();
+						}
 						Main.PlaySound(SoundID.Grab);
 					}
+					else
+					{
+						if (craftTimer <= 0)
+						{
+							craftTimer = maxCraftTimer;
+							maxCraftTimer = maxCraftTimer * 3 / 4;
+							if (maxCraftTimer <= 0)
+								maxCraftTimer = 1;
+							TryCraft();
+							if (RecursiveCraftIntegration.Enabled)
+								if (RecursiveCraftIntegration.UpdateRecipe(selectedRecipe))
+									SetSelectedRecipe(selectedRecipe);
+							RefreshItems();
+							Main.PlaySound(SoundID.Grab);
+						}
 
-					craftTimer--;
-					flag = true;
-					if (ModPlayer.AddToCraftedRecipes(selectedRecipe.createItem))
-						RefreshItems();
+						craftTimer--;
+						flag = true;
+						if (ModPlayer.AddToCraftedRecipes(selectedRecipe.createItem))
+							RefreshItems();
+					}
 				}
 			}
 			else
