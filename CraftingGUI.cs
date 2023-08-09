@@ -507,7 +507,7 @@ namespace MagicStorageExtra
 		{
 			Rectangle dim = InterfaceHelper.GetFullRectangle(craftButton);
 
-			if (Main.netMode == NetmodeID.SinglePlayer && curMouse.X > dim.X && curMouse.X < dim.X + dim.Width && curMouse.Y > dim.Y && curMouse.Y < dim.Y + dim.Height && selectedRecipe != null && Main.mouseItem.IsAir && CanItemBeTakenForTest(selectedRecipe.createItem))
+			if (Main.netMode == NetmodeID.SinglePlayer && curMouse.X > dim.X && curMouse.X < dim.X + dim.Width && curMouse.Y > dim.Y && curMouse.Y < dim.Y + dim.Height && selectedRecipe != null && IsAvailable(selectedRecipe, false) && PassesBlock(selectedRecipe))
 				Main.instance.MouseText(Language.GetText("Mods.MagicStorageExtra.CraftTooltip").Value);
 		}
 
