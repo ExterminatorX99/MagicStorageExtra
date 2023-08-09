@@ -188,32 +188,15 @@ namespace MagicStorageExtra
 				return false;
 			int oldType = item.type;
 			int oldStack = item.stack;
-			if (StorageCrafting())
+			
+			if (Main.netMode == NetmodeID.SinglePlayer)
 			{
-				if (false)
-				{
-					if (Main.netMode == NetmodeID.SinglePlayer)
-					{
-						GetCraftingAccess().TryDepositStation(item);
-					}
-					else
-					{
-						NetHelper.SendDepositStation(GetCraftingAccess().ID, item);
-						item.SetDefaults(0, true);
-					}
-				}
+				GetStorageHeart().DepositItem(item);
 			}
 			else
 			{
-				if (Main.netMode == NetmodeID.SinglePlayer)
-				{
-					GetStorageHeart().DepositItem(item);
-				}
-				else
-				{
-					NetHelper.SendDeposit(GetStorageHeart().ID, item);
-					item.SetDefaults(0, true);
-				}
+				NetHelper.SendDeposit(GetStorageHeart().ID, item);
+				item.SetDefaults(0, true);
 			}
 
 			if (item.type != oldType || item.stack != oldStack)
